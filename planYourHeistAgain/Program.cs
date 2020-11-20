@@ -10,11 +10,13 @@ namespace planYourHeistAgain
         {
 
             Console.WriteLine("Plan Your Heist!");
+            Console.WriteLine("--------------------");
             //declared what name is
             string name = null;
             //difficulty level prompt and input
             Console.WriteLine("Entry difficulty level");
             int difficultyLevel = int.Parse(Console.ReadLine());
+            Console.WriteLine("----------------")
 
 
             //creating an empty list
@@ -35,6 +37,7 @@ namespace planYourHeistAgain
                 //courage factor prompt and input
                 Console.WriteLine("Enter courage factor");
                 decimal courageFactor = int.Parse(Console.ReadLine());
+
                 //creating the team members
                 TeamMember newTeammate = new TeamMember()
                 {
@@ -48,6 +51,8 @@ namespace planYourHeistAgain
             }
             Console.WriteLine("Enter how many times your team wants to rob the bank:");
             int heistAttempts = int.Parse(Console.ReadLine());
+            int numOfSuccessfulAttempts = heistAttempts;
+            int numOfFailAttempts = heistAttempts;
             //use a for loop to loop through the number of heistAttempt
             for (int num = 0; num < heistAttempts; num++)
             {
@@ -56,8 +61,7 @@ namespace planYourHeistAgain
                 int luckyValue = new Random().Next(-10, 10);
                 //adding the luckyValue and difficultyLevel together
                 int luckAndDifficulty = luckyValue + difficultyLevel;
-                int numOfSuccessfulAttempts = heistAttempts;
-                int numOfFailAttempts = heistAttempts;
+
                 //display the team members
                 // foreach (TeamMember teammate in teammates)
                 // {
@@ -71,14 +75,18 @@ namespace planYourHeistAgain
                 if (teamSkillLevel >= luckAndDifficulty)
                 {
                     Console.WriteLine("This heist will be successful!");
+                    Console.WriteLine();
                 }
                 else
                 {
                     Console.WriteLine("This heist will fail");
+                    Console.WriteLine();
                 }
-                Console.WriteLine($"Your team was successful {numOfSuccessfulAttempts} and your team fail {numOfFailAttempts}");
 
             }
+            Console.WriteLine();
+            Console.WriteLine($"Your team was successful {numOfSuccessfulAttempts} and your team failed {numOfFailAttempts}");
+
 
 
 
