@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace planYourHeistAgain
 {
@@ -13,18 +14,20 @@ namespace planYourHeistAgain
             string name = null;
             //creating an empty list
             List<TeamMember> teammates = new List<TeamMember>();
-            //while loop to run through the team members
+            //while loop to run through the team members. while name is entered continue with other questions
             while (name != "")
             {
                 Console.WriteLine("Enter team members name");
                 name = Console.ReadLine();
-                // stops if they don't enter a name
+                // stops and exit if they don't enter a name
                 if (name == "")
                 {
                     break;
                 }
+                //skill level prompt and input
                 Console.WriteLine("Enter skill level");
                 int skillLevel = int.Parse(Console.ReadLine());
+                //courage factor prompt and input
                 Console.WriteLine("Enter courage factor");
                 decimal courageFactor = int.Parse(Console.ReadLine());
                 //creating the team members
@@ -40,9 +43,10 @@ namespace planYourHeistAgain
             //display the team members
             foreach (TeamMember teammate in teammates)
             {
-                Console.WriteLine(teammate);
-
+                Console.WriteLine($"Name:{teammate.Name} Skill Level:{teammate.SkillLevel} CourageFactor:{teammate.CourageFactor}");
             }
+            //counting the number of teammates in a team with the .count method
+            Console.WriteLine($"The number of teammates is {teammates.Count()}");
 
 
         }
