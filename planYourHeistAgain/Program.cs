@@ -13,6 +13,9 @@ namespace planYourHeistAgain
             //declared what name is
             string name = null;
             int difficultyLevel = 100;
+            int luckyValue = new Random().Next(-10, 10);
+            int luckAndDifficulty = luckyValue + difficultyLevel;
+
             //creating an empty list
             List<TeamMember> teammates = new List<TeamMember>();
             //while loop to run through the team members. while name is entered continue with other questions
@@ -50,7 +53,9 @@ namespace planYourHeistAgain
             //counting the number of teammates in a team with the .count method
             Console.WriteLine($"The number of teammates is {teammates.Count()}");
             int teamSkillLevel = teammates.Sum(teammate => teammate.SkillLevel);
-            if (teamSkillLevel >= difficultyLevel)
+            Console.WriteLine($"Teams Skill Level:{teamSkillLevel} and Difficulty Level:{luckAndDifficulty}");
+            //if team skill level is higher or equal to luckAndDifficulty then the heist will be successful otherwise it will fail
+            if (teamSkillLevel >= luckAndDifficulty)
             {
                 Console.WriteLine("This heist will be successful!");
             }
@@ -58,7 +63,9 @@ namespace planYourHeistAgain
             {
                 Console.WriteLine("This heist will fail");
             }
-            Console.WriteLine(teamSkillLevel);
+
+
+
 
         }
     }
