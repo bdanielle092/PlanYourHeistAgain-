@@ -12,7 +12,9 @@ namespace planYourHeistAgain
             Console.WriteLine("Plan Your Heist!");
             //declared what name is
             string name = null;
-            int difficultyLevel = 100;
+            //difficulty level prompt and input
+            Console.WriteLine("Entry difficulty level");
+            int difficultyLevel = int.Parse(Console.ReadLine());
 
 
             //creating an empty list
@@ -54,6 +56,8 @@ namespace planYourHeistAgain
                 int luckyValue = new Random().Next(-10, 10);
                 //adding the luckyValue and difficultyLevel together
                 int luckAndDifficulty = luckyValue + difficultyLevel;
+                int numOfSuccessfulAttempts = heistAttempts;
+                int numOfFailAttempts = heistAttempts;
                 //display the team members
                 // foreach (TeamMember teammate in teammates)
                 // {
@@ -72,6 +76,8 @@ namespace planYourHeistAgain
                 {
                     Console.WriteLine("This heist will fail");
                 }
+                Console.WriteLine($"Your team was successful {numOfSuccessfulAttempts} and your team fail {numOfFailAttempts}");
+
             }
 
 
