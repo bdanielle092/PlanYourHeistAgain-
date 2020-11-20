@@ -12,6 +12,7 @@ namespace planYourHeistAgain
             Console.WriteLine("Plan Your Heist!");
             //declared what name is
             string name = null;
+            int difficultyLevel = 100;
             //creating an empty list
             List<TeamMember> teammates = new List<TeamMember>();
             //while loop to run through the team members. while name is entered continue with other questions
@@ -39,15 +40,25 @@ namespace planYourHeistAgain
                 };
                 //addding the team member
                 teammates.Add(newTeammate);
+
             }
             //display the team members
-            foreach (TeamMember teammate in teammates)
-            {
-                Console.WriteLine($"Name:{teammate.Name} Skill Level:{teammate.SkillLevel} CourageFactor:{teammate.CourageFactor}");
-            }
+            // foreach (TeamMember teammate in teammates)
+            // {
+            //     Console.WriteLine($"Name:{teammate.Name} Skill Level:{teammate.SkillLevel} CourageFactor:{teammate.CourageFactor}");
+            // }
             //counting the number of teammates in a team with the .count method
             Console.WriteLine($"The number of teammates is {teammates.Count()}");
-
+            int teamSkillLevel = teammates.Sum(teammate => teammate.SkillLevel);
+            if (teamSkillLevel >= difficultyLevel)
+            {
+                Console.WriteLine("This heist will be successful!");
+            }
+            else
+            {
+                Console.WriteLine("This heist will fail");
+            }
+            Console.WriteLine(teamSkillLevel);
 
         }
     }
