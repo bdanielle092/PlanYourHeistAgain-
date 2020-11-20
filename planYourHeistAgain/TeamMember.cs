@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace planYourHeistAgain
 {
@@ -8,10 +9,5 @@ namespace planYourHeistAgain
         public int SkillLevel { get; set; }
         public decimal CourageFactor { get; set; }
 
-
-        public void AddTeamMember()
-        {
-
-        }
     }
 }
