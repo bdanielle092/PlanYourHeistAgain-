@@ -16,7 +16,7 @@ namespace planYourHeistAgain
             //difficulty level prompt and input
             Console.WriteLine("Entry difficulty level");
             int difficultyLevel = int.Parse(Console.ReadLine());
-            Console.WriteLine("----------------")
+            Console.WriteLine("----------------");
 
 
             //creating an empty list
@@ -35,7 +35,7 @@ namespace planYourHeistAgain
                 Console.WriteLine("Enter skill level");
                 int skillLevel = int.Parse(Console.ReadLine());
                 //courage factor prompt and input
-                Console.WriteLine("Enter courage factor");
+                Console.WriteLine("Enter courage factor (0.0 - 0.2)");
                 decimal courageFactor = int.Parse(Console.ReadLine());
 
                 //creating the team members
@@ -49,10 +49,12 @@ namespace planYourHeistAgain
                 teammates.Add(newTeammate);
 
             }
-            Console.WriteLine("Enter how many times your team wants to rob the bank:");
+            Console.WriteLine("Enter how many times does your team wants to rob the bank:");
             int heistAttempts = int.Parse(Console.ReadLine());
-            int numOfSuccessfulAttempts = heistAttempts;
-            int numOfFailAttempts = heistAttempts;
+            //variable to hold success and failures of heist attempts
+            int numOfSuccessfulAttempts = 0;
+            int numOfFailAttempts = 0;
+
             //use a for loop to loop through the number of heistAttempt
             for (int num = 0; num < heistAttempts; num++)
             {
@@ -76,16 +78,20 @@ namespace planYourHeistAgain
                 {
                     Console.WriteLine("This heist will be successful!");
                     Console.WriteLine();
+                    //everytime your successfull it add to the variable numOfSuccessfulAttempt
+                    numOfSuccessfulAttempts++;
                 }
                 else
                 {
                     Console.WriteLine("This heist will fail");
                     Console.WriteLine();
+                    //everytime your successfull it add to the variable numOfFailAttempt
+                    numOfFailAttempts++;
                 }
 
             }
             Console.WriteLine();
-            Console.WriteLine($"Your team was successful {numOfSuccessfulAttempts} and your team failed {numOfFailAttempts}");
+            Console.WriteLine($"Your team was successful {numOfSuccessfulAttempts} time(s) and your team failed {numOfFailAttempts} time(s)");
 
 
 
