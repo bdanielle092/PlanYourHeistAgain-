@@ -10,9 +10,13 @@ namespace planYourHeistAgain
         {
 
             Console.WriteLine("Plan Your Heist!");
+            Console.WriteLine("--------------------");
             //declared what name is
             string name = null;
-            int difficultyLevel = 100;
+            //difficulty level prompt and input
+            Console.WriteLine("Entry difficulty level");
+            int difficultyLevel = int.Parse(Console.ReadLine());
+            Console.WriteLine("----------------");
 
 
             //creating an empty list
@@ -31,8 +35,9 @@ namespace planYourHeistAgain
                 Console.WriteLine("Enter skill level");
                 int skillLevel = int.Parse(Console.ReadLine());
                 //courage factor prompt and input
-                Console.WriteLine("Enter courage factor");
+                Console.WriteLine("Enter courage factor (0.0 - 0.2)");
                 decimal courageFactor = int.Parse(Console.ReadLine());
+
                 //creating the team members
                 TeamMember newTeammate = new TeamMember()
                 {
@@ -44,8 +49,12 @@ namespace planYourHeistAgain
                 teammates.Add(newTeammate);
 
             }
-            Console.WriteLine("Enter how many times your team wants to rob the bank:");
+            Console.WriteLine("Enter how many times does your team wants to rob the bank:");
             int heistAttempts = int.Parse(Console.ReadLine());
+            //variable to hold success and failures of heist attempts
+            int numOfSuccessfulAttempts = 0;
+            int numOfFailAttempts = 0;
+
             //use a for loop to loop through the number of heistAttempt
             for (int num = 0; num < heistAttempts; num++)
             {
@@ -54,6 +63,7 @@ namespace planYourHeistAgain
                 int luckyValue = new Random().Next(-10, 10);
                 //adding the luckyValue and difficultyLevel together
                 int luckAndDifficulty = luckyValue + difficultyLevel;
+
                 //display the team members
                 // foreach (TeamMember teammate in teammates)
                 // {
@@ -67,12 +77,22 @@ namespace planYourHeistAgain
                 if (teamSkillLevel >= luckAndDifficulty)
                 {
                     Console.WriteLine("This heist will be successful!");
+                    Console.WriteLine();
+                    //everytime your successfull it add to the variable numOfSuccessfulAttempt
+                    numOfSuccessfulAttempts++;
                 }
                 else
                 {
                     Console.WriteLine("This heist will fail");
+                    Console.WriteLine();
+                    //everytime your successfull it add to the variable numOfFailAttempt
+                    numOfFailAttempts++;
                 }
+
             }
+            Console.WriteLine();
+            Console.WriteLine($"Your team was successful {numOfSuccessfulAttempts} time(s) and your team failed {numOfFailAttempts} time(s)");
+
 
 
 
